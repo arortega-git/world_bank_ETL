@@ -1,4 +1,4 @@
-countryiso3code,year,unemployment_rate,unit,obs_status,decimal,indicator.id,indicator.value,country.id,country
+countryiso3code,year,total_unemployment_rate,unit,obs_status,decimal,indicator.id,indicator.value,country.id,country
 CZE,2023,2.579,,,1,SL.UEM.TOTL.ZS,"Unemployment, total (% of total labor force) (modeled ILO estimate)",CZ,Czechia
 CZE,2022,2.224,,,1,SL.UEM.TOTL.ZS,"Unemployment, total (% of total labor force) (modeled ILO estimate)",CZ,Czechia
 CZE,2021,2.803,,,1,SL.UEM.TOTL.ZS,"Unemployment, total (% of total labor force) (modeled ILO estimate)",CZ,Czechia
