@@ -1,0 +1,52 @@
+[2025-08-27T10:08:30.193+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-08-27T10:08:30.198+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: unemployment_etl_dag.run_etl manual__2025-08-27T10:08:29.205342+00:00 [queued]>
+[2025-08-27T10:08:30.201+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: unemployment_etl_dag.run_etl manual__2025-08-27T10:08:29.205342+00:00 [queued]>
+[2025-08-27T10:08:30.201+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-08-27T10:08:30.204+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): run_etl> on 2025-08-27 10:08:29.205342+00:00
+[2025-08-27T10:08:30.207+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1761) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-08-27T10:08:30.209+0000] {standard_task_runner.py:72} INFO - Started process 1763 to run task
+[2025-08-27T10:08:30.208+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'unemployment_etl_dag', 'run_etl', 'manual__2025-08-27T10:08:29.205342+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/unemployment_etl_dag.py', '--cfg-path', '/tmp/tmplvuvqhgs']
+[2025-08-27T10:08:30.209+0000] {standard_task_runner.py:105} INFO - Job 13: Subtask run_etl
+[2025-08-27T10:08:30.233+0000] {task_command.py:467} INFO - Running <TaskInstance: unemployment_etl_dag.run_etl manual__2025-08-27T10:08:29.205342+00:00 [running]> on host 6c81a3d5d2a8
+[2025-08-27T10:08:30.261+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='unemployment_etl_dag' AIRFLOW_CTX_TASK_ID='run_etl' AIRFLOW_CTX_EXECUTION_DATE='2025-08-27T10:08:29.205342+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-27T10:08:29.205342+00:00'
+[2025-08-27T10:08:30.262+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-08-27T10:08:30.262+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-08-27T10:08:30.262+0000] {logging_mixin.py:190} INFO - Current task name:run_etl state:running start_date:2025-08-27 10:08:30.199091+00:00
+[2025-08-27T10:08:30.262+0000] {logging_mixin.py:190} INFO - Dag name:unemployment_etl_dag and current dag run status:running
+[2025-08-27T10:08:30.262+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-08-27T10:08:30.555+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_CZ_total_unemployment_rate.json and /opt/***/data/processed/unemployment_CZ_total_unemployment_rate.csv
+[2025-08-27T10:08:31.828+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_CZ_male_unemployment_rate.json and /opt/***/data/processed/unemployment_CZ_male_unemployment_rate.csv
+[2025-08-27T10:08:33.089+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_CZ_female_unemployment_rate.json and /opt/***/data/processed/unemployment_CZ_female_unemployment_rate.csv
+[2025-08-27T10:08:34.313+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_CZ_youth_unemployment_rate.json and /opt/***/data/processed/unemployment_CZ_youth_unemployment_rate.csv
+[2025-08-27T10:08:35.567+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_CZ_youth_male_unemployment_rate.json and /opt/***/data/processed/unemployment_CZ_youth_male_unemployment_rate.csv
+[2025-08-27T10:08:36.818+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_CZ_youth_female_unemployment_rate.json and /opt/***/data/processed/unemployment_CZ_youth_female_unemployment_rate.csv
+[2025-08-27T10:08:38.144+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_CZ_unemployment_rate_basic_education_male.json and /opt/***/data/processed/unemployment_CZ_unemployment_rate_basic_education_male.csv
+[2025-08-27T10:08:39.392+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_CZ_unemployment_rate_intermediate_education_male.json and /opt/***/data/processed/unemployment_CZ_unemployment_rate_intermediate_education_male.csv
+[2025-08-27T10:08:40.605+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_CZ_unemployment_rate_advanced_education_male.json and /opt/***/data/processed/unemployment_CZ_unemployment_rate_advanced_education_male.csv
+[2025-08-27T10:08:41.844+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_CZ_unemployment_rate_basic_education_female.json and /opt/***/data/processed/unemployment_CZ_unemployment_rate_basic_education_female.csv
+[2025-08-27T10:08:43.065+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_CZ_unemployment_rate_intermediate_education_female.json and /opt/***/data/processed/unemployment_CZ_unemployment_rate_intermediate_education_female.csv
+[2025-08-27T10:08:44.319+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_CZ_unemployment_rate_advanced_education_female.json and /opt/***/data/processed/unemployment_CZ_unemployment_rate_advanced_education_female.csv
+[2025-08-27T10:08:45.561+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_EUU_total_unemployment_rate.json and /opt/***/data/processed/unemployment_EUU_total_unemployment_rate.csv
+[2025-08-27T10:08:46.792+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_EUU_male_unemployment_rate.json and /opt/***/data/processed/unemployment_EUU_male_unemployment_rate.csv
+[2025-08-27T10:08:48.002+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_EUU_female_unemployment_rate.json and /opt/***/data/processed/unemployment_EUU_female_unemployment_rate.csv
+[2025-08-27T10:08:49.204+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_EUU_youth_unemployment_rate.json and /opt/***/data/processed/unemployment_EUU_youth_unemployment_rate.csv
+[2025-08-27T10:08:50.505+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_EUU_youth_male_unemployment_rate.json and /opt/***/data/processed/unemployment_EUU_youth_male_unemployment_rate.csv
+[2025-08-27T10:08:51.698+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_EUU_youth_female_unemployment_rate.json and /opt/***/data/processed/unemployment_EUU_youth_female_unemployment_rate.csv
+[2025-08-27T10:08:53.296+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_EUU_unemployment_rate_basic_education_male.json and /opt/***/data/processed/unemployment_EUU_unemployment_rate_basic_education_male.csv
+[2025-08-27T10:08:54.542+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_EUU_unemployment_rate_intermediate_education_male.json and /opt/***/data/processed/unemployment_EUU_unemployment_rate_intermediate_education_male.csv
+[2025-08-27T10:08:55.795+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_EUU_unemployment_rate_advanced_education_male.json and /opt/***/data/processed/unemployment_EUU_unemployment_rate_advanced_education_male.csv
+[2025-08-27T10:08:57.076+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_EUU_unemployment_rate_basic_education_female.json and /opt/***/data/processed/unemployment_EUU_unemployment_rate_basic_education_female.csv
+[2025-08-27T10:08:58.419+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_EUU_unemployment_rate_intermediate_education_female.json and /opt/***/data/processed/unemployment_EUU_unemployment_rate_intermediate_education_female.csv
+[2025-08-27T10:08:59.619+0000] {logging_mixin.py:190} INFO - Saved: /opt/***/data/raw/unemployment_EUU_unemployment_rate_advanced_education_female.json and /opt/***/data/processed/unemployment_EUU_unemployment_rate_advanced_education_female.csv
+[2025-08-27T10:09:00.624+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-08-27T10:09:00.645+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-08-27T10:09:00.645+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=unemployment_etl_dag, task_id=run_etl, run_id=manual__2025-08-27T10:08:29.205342+00:00, execution_date=20250827T100829, start_date=20250827T100830, end_date=20250827T100900
+[2025-08-27T10:09:00.658+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-08-27T10:09:00.658+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-08-27T10:09:00.658+0000] {logging_mixin.py:190} INFO - Dag name:unemployment_etl_dag queued_at:2025-08-27 10:08:29.214796+00:00
+[2025-08-27T10:09:00.658+0000] {logging_mixin.py:190} INFO - Task hostname:6c81a3d5d2a8 operator:PythonOperator
+[2025-08-27T10:09:00.671+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-08-27T10:09:00.691+0000] {taskinstance.py:3900} INFO - 2 downstream tasks scheduled from follow-on schedule check
+[2025-08-27T10:09:00.691+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

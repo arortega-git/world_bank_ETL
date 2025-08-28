@@ -120,6 +120,9 @@ services:
     command: webserver
     ports:
       - "8080:8080"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
       interval: 30s
@@ -135,6 +138,9 @@ services:
   airflow-scheduler:
     <<: *airflow-common
     command: scheduler
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8974/health"]
       interval: 30s
@@ -150,6 +156,9 @@ services:
   airflow-worker:
     <<: *airflow-common
     command: celery worker
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
     healthcheck:
       # yamllint disable rule:line-length
       test:
