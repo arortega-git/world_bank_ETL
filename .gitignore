@@ -1,0 +1,5 @@
+# Ignorar todos los logs
+*.log
+
+# Ignorar carpetas de logs de Airflow
+worldbank_airflow/logs/

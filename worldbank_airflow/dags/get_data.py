@@ -4,6 +4,7 @@ import pandas as pd
 import time
 import glob
 import os
+from sqlalchemy import create_engine
 
 # Indicators
 
@@ -55,6 +56,9 @@ MERGED_PATH = os.path.join(BASE_PATH, 'merged')
 os.makedirs(RAW_PATH, exist_ok=True)
 os.makedirs(PROCESSED_PATH, exist_ok=True)
 os.makedirs(MERGED_PATH, exist_ok=True)
+
+# Database connection
+ENGINE = create_engine('postgresql+psycopg2://airflow:airflow@localhost:5432/unemployment')
 
 # ETL Functions
 
@@ -108,11 +112,22 @@ def save_data(df, records, country_code, indicator_name):
     df.to_csv(csv_file, index=False)
     print(f"Saved: {json_file} and {csv_file}")
 
-def run_etl(country_codes, indicators, date_ranges):
+def save_to_db(df, table_name, engine=ENGINE):
+    df.to_sql(table_name, engine, if_exists='replace', index=False)
+    print(f"Table {table_name} saved to DB")
+
+def run_etl(country_codes, indicators, date_ranges, engine):
     """
-    Run ETL pipeline for multiple countries and indicators.
+    Run ETL pipeline for multiple countries and indicators, save merged CSVs and load into DB.
+    
+    Parameters:
+        country_codes (dict): Mapping of country names to codes.
+        indicators (dict): Mapping of indicator categories to indicator codes.
+        date_ranges (dict): Date ranges for each category.
+        engine: SQLAlchemy engine to save DataFrame into the DB.
     """
     for country in country_codes.values():
+        # Procesar todos los indicadores de un país
         for category, indicator_text in indicators.items():
             date_range = (
                 date_ranges['general'] if category == "general_indicators" else
@@ -124,6 +139,14 @@ def run_etl(country_codes, indicators, date_ranges):
                 df = transform_to_dataframe(records, indicator_name)
                 save_data(df, records, country, indicator_name)
                 time.sleep(1)  # API rate limit
+
+        # # Merge de todos los CSV procesados del país
+        # merged_df = merge_country_files(country)
+        # if merged_df is not None:
+        #     # Guardar en la base de datos
+        #     table_name = f"{country.lower()}_unemployment"
+        #     save_to_db(merged_df, table_name, engine)
+        #     print(f"Merged CSV for {country} loaded into DB table '{table_name}'")
 
 def merge_country_files(country_code, output_path=MERGED_PATH):
     files = glob.glob(os.path.join(PROCESSED_PATH, f"*_{country_code}_*.csv"))
