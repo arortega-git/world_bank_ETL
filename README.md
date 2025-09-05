@@ -133,4 +133,5 @@ WHERE table_schema = 'public';
 
 ---
 
-✍️ **Author**: Learning project for Airflow + ETL pipelines.
+✍️ **Author**: Arturo Ortega - Learning project for Airflow + ETL pipelines.
+
